@@ -17,3 +17,14 @@ export const formatStatus = (status) => {
       return "Refused"
   }
 }
+
+export const sortByDate = (bills) => {
+  bills.sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    if (dateA > dateB) return -1;
+    if (dateA < dateB) return 1;
+    return 0;
+  });
+  return bills
+}
